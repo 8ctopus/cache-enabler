@@ -2367,7 +2367,7 @@ final class Cache_Enabler {
         foreach ( $dirs as $dir ) {
             $parent_dir = dirname( $dir );
             if (
-                ( file_exists( $parent_dir ) && ! is_writable( $parent_dir ) ) ||
+                ( ! file_exists($dir) && file_exists( $parent_dir ) && ! is_writable( $parent_dir ) ) ||
                 ( ! file_exists( $parent_dir ) && ! is_writable( dirname($parent_dir) ) )
             ) {
                 printf(
