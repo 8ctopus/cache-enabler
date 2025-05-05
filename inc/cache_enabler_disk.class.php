@@ -59,7 +59,13 @@ final class Cache_Enabler_Disk {
                 @unlink( $file );
             } else {
                 $target = readlink( $file );
-                unlink( $target );
+
+                $cwd = getcwd();
+                chdir( dirname( $file ) );
+
+                unlink( realpath( $target ) );
+
+                chdir( $cwd );
             }
 
             self::set_wp_cache_constant( false );
