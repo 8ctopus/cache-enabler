@@ -1353,8 +1353,6 @@ final class Cache_Enabler {
         if ( is_admin() ) {
             set_transient( self::get_cache_cleared_transient_name(), 1 );
         }
-
-        exit;
     }
 
     /**
