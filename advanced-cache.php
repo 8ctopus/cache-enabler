@@ -30,7 +30,7 @@ if ( file_exists( $cache_enabler_constants_file ) ) {
 
         if ( Cache_Enabler_Engine::start() ) {
             if ( Cache_Enabler_Engine::deliver_cache() ) {
-                return;
+                exit;
             }
 
             Cache_Enabler_Engine::start_buffering();
