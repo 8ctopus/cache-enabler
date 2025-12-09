@@ -28,7 +28,11 @@ if ( file_exists( $cache_enabler_constants_file ) ) {
         require_once $cache_enabler_engine_file;
         require_once $cache_enabler_disk_file;
 
-        if ( Cache_Enabler_Engine::start() && ! Cache_Enabler_Engine::deliver_cache() ) {
+        if ( Cache_Enabler_Engine::start() ) {
+            if ( Cache_Enabler_Engine::deliver_cache() ) {
+                return;
+            }
+
             Cache_Enabler_Engine::start_buffering();
         }
     }
