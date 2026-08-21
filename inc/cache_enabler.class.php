@@ -2169,6 +2169,8 @@ final class Cache_Enabler {
             }
         }
 
+        do_action( 'cache_enabler_page_cache_on_clear', $url );
+
         Cache_Enabler_Disk::cache_iterator( $url, $args );
     }
 
